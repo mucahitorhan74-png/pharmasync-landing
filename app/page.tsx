@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-slate-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gray-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Header with Portal Login Button */}
@@ -29,7 +29,7 @@ export default function Home() {
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] text-center">
         {/* Logo */}
         <div className="mb-12 animate-fade-in">
-          <div className="relative w-32 h-32 mx-auto mb-8">
+          <div className="relative w-48 h-48 mx-auto mb-8">
             <Image
               src="/logo.png"
               alt="PharmaSync Logo"
