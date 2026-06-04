@@ -1,0 +1,7 @@
+node_modules
+.next
+*.zip
+landing-out.zip
+landing-static.zip
+landing-build.zip
+.git
