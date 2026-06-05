@@ -14,7 +14,7 @@ export default function Home() {
       <header className="relative z-10 container mx-auto px-6 py-6">
         <div className="flex justify-end">
           <Link
-            href="https://app.pharma-sync.com.tr/giris"
+            href="https://app.pharma-sync.com.tr"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium hover:bg-white/20 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
