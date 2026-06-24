@@ -200,7 +200,7 @@ export default function HeroCarousel() {
                     onMouseLeave={() => isFront && setIsHoveredFront(false)}
                     style={{
                       position: 'absolute', top: '50%', left: '50%',
-                      width: 820, height: 506, 
+                      width: 820, height: 461, 
                       transform: `translate(-50%, -50%) translate3d(${isZoomed ? 0 : slot.x}px, ${isZoomed ? 0 : slot.y}px, ${isZoomed ? 100 : slot.z}px) scale(${currentScale})`,
                       zIndex: slot.z,
                       filter: `blur(${slot.blur}px)`,
