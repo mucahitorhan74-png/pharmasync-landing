@@ -1,119 +1,197 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import HeroCarousel from './components/HeroCarousel'
+import Navbar from './components/Navbar'
+import ScrollReveal from './components/ScrollReveal'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-slate-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gray-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <div className="min-h-screen relative z-10">
+
+      {/* ═══════════════ GLOBAL BACKGROUND ═══════════════ */}
+      {/* Background is globally handled by layout.tsx (Particles and CSS gradient) */}
+
+
+      {/* ═══════════════ HERO ═══════════════ */}
+      <div className="relative z-10">
+        <HeroCarousel />
       </div>
 
-      {/* Header with Portal Login Button */}
-      <header className="relative z-10 container mx-auto px-6 py-6">
-        <div className="flex justify-end">
-          <Link
-            href="https://app.pharma-sync.com.tr"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium hover:bg-white/20 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-            </svg>
-            Portal Giriş
-          </Link>
-        </div>
-      </header>
+      {/* Tech Divider */}
+      <div className="tech-divider relative z-10" />
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] text-center">
-        {/* Logo */}
-        <div className="mb-12 animate-fade-in">
-          <div className="relative w-48 h-48 mx-auto mb-8">
-            <Image
-              src="/logo.png"
-              alt="PharmaSync Logo"
-              fill
-              className="object-contain drop-shadow-2xl"
-              priority
-            />
-          </div>
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">
-            PharmaSync
-          </h1>
-        </div>
+      {/* ═══════════════ HOW IT WORKS ═══════════════ */}
+      <section id="nasil-calisir" className="py-24 relative z-10 scroll-mt-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
 
-        {/* Main Message */}
-        <div className="max-w-4xl mx-auto space-y-6 mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold text-blue-100">
-            Ecza Deposu Satış Kontrol ve Analiz Platformu
-          </h2>
+            {/* Header */}
+            <ScrollReveal className="text-center mb-16">
+              <div className="accent-badge">
+                <span className="dot" />
+                <span>Basit Süreç</span>
+              </div>
+              <h2 className="section-title mb-4">Nasıl Çalışır?</h2>
+              <p className="section-subtitle max-w-xl mx-auto">
+                4 adımda MF yönetimi — Dakikalar içinde hazır!
+              </p>
+            </ScrollReveal>
 
-          <div className="inline-block">
-            <div className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full">
-              <svg className="w-6 h-6 text-yellow-300 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-xl md:text-2xl font-medium text-yellow-100">
-                Çok Yakında Hizmete Açılacaktır
-              </span>
+            {/* Steps */}
+            <div className="grid md:grid-cols-4 gap-6 relative">
+              {/* Desktop Connecting Line */}
+              <div className="hidden md:block absolute top-14 left-0 right-0 h-px z-0"
+                style={{ background: 'linear-gradient(90deg, transparent 4%, rgba(0,229,255,0.25) 20%, rgba(0,229,255,0.5) 50%, rgba(0,229,255,0.25) 80%, transparent 96%)' }} />
+              
+              {/* Mobile Connecting Line */}
+              <div className="md:hidden absolute top-0 bottom-0 left-1/2 w-px z-0 -translate-x-1/2"
+                style={{ background: 'linear-gradient(180deg, transparent 2%, rgba(0,229,255,0.25) 10%, rgba(0,229,255,0.5) 50%, rgba(0,229,255,0.25) 90%, transparent 98%)' }} />
+
+              {[
+                {
+                  num: 1, label: 'Excel Yükle', desc: 'Depo Eczane Dökümünü sisteme yükle',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                },
+                {
+                  num: 2, label: 'Otomatik Eşleştir', desc: 'Excel sütunlarını sistem otomatik eşleştirir',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                },
+                {
+                  num: 3, label: 'MF Hesapla', desc: 'Mal fazlası otomatik hesaplanır ve raporlanır',
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                },
+                {
+                  num: 4, label: 'MF Mutabakat Hazır', desc: "Excel'e aktar, tamamdır!",
+                  icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                },
+              ].map((step, i) => (
+                <ScrollReveal key={i} delay={i * 0.1} className="relative z-10">
+                  <div className="step-card backdrop-blur-md bg-white/5 border border-cyan-500/10 hover:border-cyan-400/50 hover:bg-white/10 transition-all duration-300 group h-full">
+                    <div className="step-number group-hover:scale-110 transition-transform">{step.num}</div>
+                    <div className="step-icon-wrap group-hover:bg-cyan-500/20 transition-colors">
+                      <svg className="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">{step.icon}</svg>
+                    </div>
+                    <h3 className="font-bold text-white mb-2">{step.label}</h3>
+                    <p className="text-sm text-blue-200/65">{step.desc}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
+
+            {/* CTA */}
+            <ScrollReveal delay={0.4} className="text-center mt-14">
+              <div className="relative inline-flex group">
+                <Link href="https://app.pharma-sync.com.tr" className="relative inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl font-bold text-base transition-all bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/20 hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] active:scale-95 z-10">
+                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Hemen Başla — 5 Gün Ücretsiz
+                </Link>
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-20 rounded-xl" style={{ filter: 'drop-shadow(0 0 6px rgba(0, 229, 255, 0.6))' }}>
+                  <rect x="0" y="0" width="100%" height="100%" rx="12" fill="none" stroke="rgba(0, 229, 255, 0.3)" strokeWidth="2" pathLength="100" strokeDasharray="30 70">
+                    <animate attributeName="stroke-dashoffset" values="0;-100" dur="2.5s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="0" y="0" width="100%" height="100%" rx="12" fill="none" stroke="#00E5FF" strokeWidth="2.5" pathLength="100" strokeDasharray="10 90" strokeLinecap="round">
+                    <animate attributeName="stroke-dashoffset" values="-20;-120" dur="2.5s" repeatCount="indefinite" />
+                  </rect>
+                </svg>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
+      </section>
 
-        {/* Features Preview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16">
-          <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
-            <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <svg className="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Satış Analizi</h3>
-            <p className="text-blue-200 text-sm">Detaylı raporlar ve görselleştirmeler</p>
-          </div>
+      {/* Tech Divider */}
+      <div className="tech-divider relative z-10" />
 
-          <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
-            <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <svg className="w-6 h-6 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Firma Yönetimi</h3>
-            <p className="text-blue-200 text-sm">Merkezi firma ve kullanıcı kontrolü</p>
-          </div>
-
-          <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
-            <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <svg className="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Güvenli Sistem</h3>
-            <p className="text-blue-200 text-sm">Modern güvenlik ve yetkilendirme</p>
+      {/* ═══════════════ QUICK FEATURES ═══════════════ */}
+      <section id="ozellikler" className="py-16 relative z-10 scroll-mt-20">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-5xl mx-auto">
+            {[
+              { icon: '⚡', title: '5 Dakika', sub: 'Hızlı Kurulum' },
+              { icon: '📊', title: 'Anlık Raporlar', sub: 'MF & Performans' },
+              { icon: '🔒', title: 'Güvenli', sub: '256-bit Şifreleme' },
+              { icon: '🛟', title: '7/24 Destek', sub: 'Her Zaman Yanınızda' },
+            ].map((f, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className="feature-pill group hover:scale-105">
+                  <div className="feature-pill-icon text-2xl group-hover:scale-110 transition-transform">{f.icon}</div>
+                  <h3 className="font-bold text-white text-sm mb-1">{f.title}</h3>
+                  <p className="text-xs text-blue-200/60">{f.sub}</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 container mx-auto px-6 py-8 mt-auto">
-        <div className="text-center space-y-4">
-          <div className="flex items-center justify-center gap-2 text-blue-200">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <a
-              href="mailto:destek@pharma-sync.com.tr"
-              className="hover:text-white transition-colors duration-300"
-            >
-              destek@pharma-sync.com.tr
-            </a>
+      {/* Tech Divider */}
+      <div className="tech-divider relative z-10" />
+
+      {/* ═══════════════ STATS ═══════════════ */}
+      <section className="py-20 stats-section relative z-10">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+            {[
+              { val: '15+', label: 'İlaç Firması' },
+              { val: '150+', label: 'Depo Noktası' },
+              { val: '50K+', label: 'MF İşlemi' },
+              { val: '%99.9', label: 'Uptime' },
+            ].map((s, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className="stat-value">{s.val}</div>
+                <div className="stat-label">{s.label}</div>
+              </ScrollReveal>
+            ))}
           </div>
-          <p className="text-blue-300/60 text-sm">
-            © 2026 PharmaSync. Tüm hakları saklıdır.
-          </p>
         </div>
-      </footer>
-    </main>
+      </section>
+
+      {/* Tech Divider */}
+      <div className="tech-divider relative z-10" />
+
+      {/* ═══════════════ FINAL CTA / İLETİŞİM ═══════════════ */}
+      <section id="iletisim" className="py-32 cta-section relative z-10 scroll-mt-20">
+        <div className="container mx-auto px-6 text-center">
+          <ScrollReveal className="max-w-3xl mx-auto">
+            <div className="accent-badge mx-auto" style={{ justifyContent: 'center' }}>
+              <span className="dot" />
+              <span>Hemen Başlayın</span>
+            </div>
+            <h2 className="section-title mb-6">
+              Depo Performansınızı<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Optimize Edin</span>
+            </h2>
+            <p className="section-subtitle max-w-2xl mx-auto mb-12">
+              MF hesaplarını otomatikleştirin, depo performansını analiz edin. Kurulum sadece 5 dakika.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="relative inline-flex group">
+                <Link href="https://app.pharma-sync.com.tr" className="relative inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl font-bold text-base transition-all bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/20 hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] active:scale-95 z-10">
+                  Ücretsiz Deneyin
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-20 rounded-xl" style={{ filter: 'drop-shadow(0 0 6px rgba(0, 229, 255, 0.6))' }}>
+                  <rect x="0" y="0" width="100%" height="100%" rx="12" fill="none" stroke="rgba(0, 229, 255, 0.3)" strokeWidth="2" pathLength="100" strokeDasharray="30 70">
+                    <animate attributeName="stroke-dashoffset" values="0;-100" dur="2.5s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="0" y="0" width="100%" height="100%" rx="12" fill="none" stroke="#00E5FF" strokeWidth="2.5" pathLength="100" strokeDasharray="10 90" strokeLinecap="round">
+                    <animate attributeName="stroke-dashoffset" values="-20;-120" dur="2.5s" repeatCount="indefinite" />
+                  </rect>
+                </svg>
+              </div>
+              <Link href="/iletisim" className="btn-outline hover:scale-105 active:scale-95">
+                Bize Ulaşın
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+
+    </div>
   )
 }
