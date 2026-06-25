@@ -1,7 +1,9 @@
+'use client'
+
 import Script from 'next/script'
 
 export default function GoogleAnalytics() {
-  const GA_MEASUREMENT_ID = 'G-XSWCXFFS7R'
+  const GA_MEASUREMENT_ID = 'G-XSWCXFF57R'
 
   return (
     <>
