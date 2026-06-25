@@ -1,7 +1,7 @@
 'use client'
 
 export default function WhatsAppButton() {
-  const phoneNumber = '905555555555' // Bu numara güncellenecek
+  const phoneNumber = '905446984819' // Bu numara güncellenecek
   const message = 'Merhaba, PharmaSync hakkında bilgi almak istiyorum.'
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
